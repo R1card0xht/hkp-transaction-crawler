@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hkp-transaction-crawler"
+version = "0.2.0"
+description = "Polite, robots-aware collector for public Hong Kong Property transaction pages"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+  {name = "Local research use"}
+]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "License :: OSI Approved :: MIT License",
+]
+dependencies = [
+  "openpyxl>=3.1",
+  "playwright>=1.49",
+  "pyproj>=3.6",
+  "tzdata>=2024.1",
+]
+
+[project.scripts]
+hkp-transactions = "hkp_transaction_crawler.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
